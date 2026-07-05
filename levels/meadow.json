@@ -1,0 +1,501 @@
+{
+ "name": "Ruins of the Meadow",
+ "width": 44,
+ "height": 44,
+ "tiles": [
+  "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
+  "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
+  "WWGGGGGGGGGGGGGGGGWWWGGGGGGGGGGGGGGGGGGGGGWW",
+  "WWGGGGGGGGGGGGGGGGWWWGGGGGGGGGRGGGGGGGGGGGWW",
+  "WWGGGGGGGGGGGGGGGGWWWGGGGGGGGGRGGGGGGGGGGGWW",
+  "WWGGGGGGGGGGGGGGGGWWWGGGGGGGGGRGGGGGGGGGGGWW",
+  "WWGGGGGGGGGGGGGGGGWWWGGGGGGGGGRGGGGGGGGGGGWW",
+  "WWGGGGGGGGGGGGGGGGWWWGGGGGGGGGRGGGGGGGGGGGWW",
+  "WWGGGGGGGGGGGGGGGGWWWGGGGGGGGGRGGGGGGGGGGGWW",
+  "WWGGGGGGGGGGGGGGGGWWWGGGGGGGGGRGGGGGGGGGGGWW",
+  "WWGGGGGGGGGGGGGGGGWWWGGGGGGGGGRRRRRRXRRRRRWW",
+  "WWGGGGGGGGGGGGGGGGWWWGGGGGGGGGGGGGGGPGGGGGWW",
+  "WWGGGGGGGGGGGGGGGGBBBGGRRRRRRRGGGFFFPGGGGGWW",
+  "WWGGGGGGGGGGGGGGGGWWWGGRGGGGGRGGGFFFPGGGGGWW",
+  "WWGGGGGGGGGGGGGGGGWWWGGRGGGGGRGGGFFFPGGGGGWW",
+  "WWGGGGGGGGGGGGGGGGWWWGGRGGGGGGPPPPPPPGGGGGWW",
+  "WWGRRRRRRGGGGGGGGGWWWGGRGGGGGRGGGGGGGGGGGGWW",
+  "WWGRGGGGRGGGGGGGGGWWWGGRGGGGGRGRGGGGGRGGGGWW",
+  "WWGRGGGGRGGGGGGGGGWWWGGRRRPRRRGGGGGGGGGGGGWW",
+  "WWGRGGGGRGGGGGGGGGWWWGGGGGPGGGGGGGGGGGGGGGWW",
+  "WWGRGGGGRGGGGGGRGGWWWGGGGRPGGGGGGRRRRRRRGGWW",
+  "WWGRRPRRRGGGGGGGGGWWWGGGGGPGGGGGGRGGGGGRGGWW",
+  "WWGGGPGGGGGGGRGGGGWWWGGPPPPGGGGGGRGGGGGRGGWW",
+  "WWGGGPGGGGGGGGGGGGWWWGGPGGGGGGPPPGGGGGGRGGWW",
+  "WWGGGPGGGGGGGGGGGGWWWGGPGGGGGGGGGRGGGGGRGGWW",
+  "WWGGGPPPPPGGGGGGGGWWWGGPGGGGGGGCGRGGGGGRGGWW",
+  "WWGGGGGGGPPPPPPPPPBBBPPPGGGGGGGGGRRRRRRRGGWW",
+  "WWGGGGGGGPGGGGGGGGWWWGGPGGGGGRGGGGGGGGGGGGWW",
+  "WWGGGGGGGPGGGGGGGGWWWGGPGGGGGGGRGGGGGGCGGGWW",
+  "WWGGGGGGGPGGGGGGGGWWWGGPGGGGGGGGGGGGGGGGGGWW",
+  "WWGGGGGGGPGGGGRGGGWWWGGPRRRRRRRGGGGGGGGGGGWW",
+  "WWGGGGGGGPGGGGGGGGWWWGRPRGGGGGRGGGGGGGGGGGWW",
+  "WWGGGGGGPPPGGGGGGGWWWGGPRGGGGGRGGGGGGGGGGGWW",
+  "WWGGGGGGPPPGGGGGGGWWWGGPGGGGGGRGGGGGGGGGGGWW",
+  "WWGGGGGGPPPGCGGGGGWWWGGGRGGGGGRGGGGGGGGGGGWW",
+  "WWGGGGGGPPPGGGGGGGWWWGGGRGGGGGRGGGGGGGGGGGWW",
+  "WWGGGGGGPPPGGGGGGGWWWGGGRRRRRRRGGGGGGGGGGGWW",
+  "WWGGGGGGPPPGGGGGGGWWWGGGGGGGGGGGGGGGGGGGGGWW",
+  "WWGGGGGGPPPGGGGGGGWWWGGGGGGGGGGGGGGGGGGGGGWW",
+  "WWGGGGGGGGGGGGGGGGWWWGGGGGGGGGGGGGGGGGGGGGWW",
+  "WWGGGGGGGGGGGGGGGGWWWGGGGGGGGGGGGGGGGGGGGGWW",
+  "WWGGGGGGGGGGGGGGGGWWWGGGGGGGGGGGGGGGGGGGGGWW",
+  "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
+  "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
+ ],
+ "playerStart": {
+  "x": 9.5,
+  "y": 36.5
+ },
+ "fountain": {
+  "x": 34,
+  "y": 13.5,
+  "respawn": {
+   "x": 34.5,
+   "y": 13.5
+  }
+ },
+ "signs": [
+  {
+   "x": 8,
+   "y": 34,
+   "text": "Move with WASD / arrows (or the stick)."
+  },
+  {
+   "x": 10,
+   "y": 33,
+   "text": "Attack with J or SPACE — chain 3 swings!"
+  },
+  {
+   "x": 9,
+   "y": 31,
+   "text": "Dodge-roll with K or SHIFT. You are invincible mid-roll."
+  },
+  {
+   "x": 16,
+   "y": 25,
+   "text": "Slash incoming seeds to knock them away!"
+  },
+  {
+   "x": 35,
+   "y": 14,
+   "text": "A healing fountain. Your progress is saved here."
+  }
+ ],
+ "enemies": [
+  {
+   "type": "blob",
+   "x": 9,
+   "y": 30
+  },
+  {
+   "type": "blob",
+   "x": 7.5,
+   "y": 28
+  },
+  {
+   "type": "blob",
+   "x": 12,
+   "y": 27.5
+  },
+  {
+   "type": "blob",
+   "x": 22.5,
+   "y": 30
+  },
+  {
+   "type": "blob",
+   "x": 23,
+   "y": 21
+  },
+  {
+   "type": "blob",
+   "x": 31,
+   "y": 27
+  },
+  {
+   "type": "blob",
+   "x": 35,
+   "y": 28
+  },
+  {
+   "type": "blob",
+   "x": 15,
+   "y": 24.5
+  },
+  {
+   "type": "goblin",
+   "x": 5,
+   "y": 17.5,
+   "px": 5,
+   "py": 20,
+   "unlessFlag": "heartCont"
+  },
+  {
+   "type": "goblin",
+   "x": 7,
+   "y": 20,
+   "px": 7,
+   "py": 17.5,
+   "unlessFlag": "heartCont"
+  },
+  {
+   "type": "goblin",
+   "x": 27,
+   "y": 25,
+   "px": 31,
+   "py": 25
+  },
+  {
+   "type": "goblin",
+   "x": 34.5,
+   "y": 17,
+   "px": 37.5,
+   "py": 19
+  },
+  {
+   "type": "turret",
+   "x": 22,
+   "y": 24
+  },
+  {
+   "type": "turret",
+   "x": 22,
+   "y": 28
+  },
+  {
+   "type": "turret",
+   "x": 30,
+   "y": 20
+  },
+  {
+   "type": "turret",
+   "x": 13,
+   "y": 25
+  }
+ ],
+ "pickups": [
+  {
+   "type": "heartcont",
+   "x": 5.5,
+   "y": 18.5,
+   "unlessFlag": "heartCont"
+  },
+  {
+   "type": "coin",
+   "x": 9,
+   "y": 34
+  },
+  {
+   "type": "coin",
+   "x": 9,
+   "y": 31
+  },
+  {
+   "type": "coin",
+   "x": 9,
+   "y": 28
+  },
+  {
+   "type": "coin",
+   "x": 11,
+   "y": 26
+  },
+  {
+   "type": "coin",
+   "x": 13,
+   "y": 26
+  },
+  {
+   "type": "coin",
+   "x": 15,
+   "y": 26
+  },
+  {
+   "type": "coin",
+   "x": 19,
+   "y": 26
+  },
+  {
+   "type": "coin",
+   "x": 21,
+   "y": 26
+  },
+  {
+   "type": "coin",
+   "x": 23,
+   "y": 24
+  },
+  {
+   "type": "coin",
+   "x": 23,
+   "y": 28
+  },
+  {
+   "type": "coin",
+   "x": 23,
+   "y": 31
+  },
+  {
+   "type": "coin",
+   "x": 26,
+   "y": 21
+  },
+  {
+   "type": "coin",
+   "x": 26,
+   "y": 19
+  },
+  {
+   "type": "coin",
+   "x": 30,
+   "y": 23
+  },
+  {
+   "type": "coin",
+   "x": 32,
+   "y": 23
+  },
+  {
+   "type": "coin",
+   "x": 29,
+   "y": 15
+  },
+  {
+   "type": "coin",
+   "x": 31,
+   "y": 15
+  },
+  {
+   "type": "coin",
+   "x": 33,
+   "y": 15
+  },
+  {
+   "type": "coin",
+   "x": 7,
+   "y": 25
+  },
+  {
+   "type": "coin",
+   "x": 5,
+   "y": 23
+  },
+  {
+   "type": "coin",
+   "x": 35,
+   "y": 13
+  },
+  {
+   "type": "coin",
+   "x": 36,
+   "y": 12
+  },
+  {
+   "type": "coin",
+   "x": 16,
+   "y": 22
+  },
+  {
+   "type": "coin",
+   "x": 14,
+   "y": 28
+  },
+  {
+   "type": "coin",
+   "x": 24,
+   "y": 34
+  },
+  {
+   "type": "coin",
+   "x": 33,
+   "y": 26
+  }
+ ],
+ "arenas": [
+  {
+   "rect": [
+    25,
+    31,
+    29,
+    35
+   ],
+   "gates": [
+    [
+     24,
+     33
+    ]
+   ],
+   "waves": [
+    [
+     {
+      "type": "blob",
+      "x": 26,
+      "y": 32
+     },
+     {
+      "type": "blob",
+      "x": 28,
+      "y": 32
+     },
+     {
+      "type": "blob",
+      "x": 27,
+      "y": 34
+     }
+    ],
+    [
+     {
+      "type": "blob",
+      "x": 25.5,
+      "y": 31.5
+     },
+     {
+      "type": "blob",
+      "x": 28.5,
+      "y": 31.5
+     },
+     {
+      "type": "blob",
+      "x": 27,
+      "y": 35
+     }
+    ]
+   ]
+  },
+  {
+   "rect": [
+    34,
+    21,
+    38,
+    25
+   ],
+   "gates": [
+    [
+     33,
+     23
+    ]
+   ],
+   "waves": [
+    [
+     {
+      "type": "blob",
+      "x": 35,
+      "y": 22
+     },
+     {
+      "type": "blob",
+      "x": 37,
+      "y": 24
+     },
+     {
+      "type": "goblin",
+      "x": 37,
+      "y": 22,
+      "px": 35,
+      "py": 24
+     }
+    ],
+    [
+     {
+      "type": "goblin",
+      "x": 35,
+      "y": 21.5,
+      "px": 38,
+      "py": 21.5
+     },
+     {
+      "type": "goblin",
+      "x": 38,
+      "y": 24.5,
+      "px": 35,
+      "py": 24.5
+     }
+    ]
+   ]
+  },
+  {
+   "rect": [
+    24,
+    13,
+    28,
+    17
+   ],
+   "gates": [
+    [
+     26,
+     18
+    ],
+    [
+     29,
+     15
+    ]
+   ],
+   "waves": [
+    [
+     {
+      "type": "turret",
+      "x": 24.5,
+      "y": 13.5
+     },
+     {
+      "type": "turret",
+      "x": 27.5,
+      "y": 13.5
+     },
+     {
+      "type": "goblin",
+      "x": 26,
+      "y": 16,
+      "px": 26,
+      "py": 14
+     }
+    ],
+    [
+     {
+      "type": "goblin",
+      "x": 24.5,
+      "y": 16.5,
+      "px": 27.5,
+      "py": 16.5
+     },
+     {
+      "type": "goblin",
+      "x": 27.5,
+      "y": 14,
+      "px": 24.5,
+      "py": 16
+     }
+    ]
+   ]
+  }
+ ],
+ "boss": {
+  "name": "GRUBTHORN — THE RUIN TENDER",
+  "gate": {
+   "x": 36,
+   "y": 10
+  },
+  "spawn": {
+   "x": 36.5,
+   "y": 4.8
+  },
+  "trigger": [
+   30.5,
+   2,
+   42,
+   9.6
+  ],
+  "arena": [
+   31.7,
+   2.7,
+   40.3,
+   8.3
+  ]
+ }
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grid Warrior — Level Editor</title>
+<style>
+  html,body{margin:0;padding:0;height:100%;overflow:hidden;background:#1a2333;
+    font-family:"Trebuchet MS","Segoe UI",Verdana,sans-serif;color:#e8edf5}
+  #wrap{display:flex;height:100vh}
+  #panel{width:250px;min-width:250px;background:#141b2b;border-right:1px solid #2c3850;
+    overflow-y:auto;padding:10px 12px;box-sizing:border-box;font-size:13px}
+  #panel h1{font-size:15px;margin:2px 0 8px;color:#ffd83d}
+  #panel h2{font-size:12px;margin:14px 0 4px;color:#9fb2d0;text-transform:uppercase;letter-spacing:.08em}
+  #panel button{background:#22304a;border:1px solid #3a4c70;color:#e8edf5;border-radius:6px;
+    padding:4px 8px;margin:2px 2px 2px 0;cursor:pointer;font-size:12px}
+  #panel button:hover{background:#2c3d5e}
+  #panel button.on{background:#ffd83d;color:#3a2a00;border-color:#fff}
+  #panel input[type=text]{width:100%;box-sizing:border-box;background:#0e1420;color:#e8edf5;
+    border:1px solid #3a4c70;border-radius:5px;padding:4px 6px;font-size:12px}
+  #panel select{width:100%;background:#0e1420;color:#e8edf5;border:1px solid #3a4c70;border-radius:5px;padding:3px;font-size:12px}
+  #status{position:fixed;left:262px;bottom:8px;background:rgba(10,14,26,.8);padding:4px 10px;
+    border-radius:6px;font-size:12px;pointer-events:none;z-index:5}
+  #ed{flex:1;display:block;cursor:crosshair}
+  .arena-row{display:flex;align-items:center;gap:4px;margin:2px 0}
+  .arena-row span{flex:1}
+  .hint{color:#7c8db0;font-size:11px;margin:4px 0}
+  label{font-size:12px}
+</style>
+</head>
+<body>
+<div id="wrap">
+  <div id="panel">
+    <h1>Grid Warrior — Editor</h1>
+    <h2>Level</h2>
+    <input type="text" id="lvName" value="Untitled">
+    <div style="margin-top:4px">
+      <button id="bNew">New</button><button id="bOpen">Open meadow</button><br>
+      <button id="bImport">Import…</button><button id="bExport">Export JSON</button>
+      <input type="file" id="fImport" accept=".json" style="display:none">
+    </div>
+    <button id="bTest" style="width:100%;margin-top:6px;background:#2f6b2f;border-color:#4d9950">▶ Test Play</button>
+    <h2>Tool</h2>
+    <div id="tools"></div>
+    <div id="toolOpts"></div>
+    <h2>Layer (enemy placement)</h2>
+    <select id="layerSel"></select>
+    <div class="hint">World = free-roaming enemies. Arena waves spawn when the trial starts.</div>
+    <h2>Arenas</h2>
+    <div id="arenaList"></div>
+    <button id="bAddWave" style="display:none">+ wave to selected</button>
+    <h2>Boss</h2>
+    <div id="bossBox"></div>
+    <h2>Selection</h2>
+    <div id="selBox" class="hint">nothing selected</div>
+    <div class="hint" style="margin-top:14px">
+      LMB: use tool · RMB-drag: pan · wheel: zoom<br>
+      Del: remove selection · Ctrl+Z: undo
+    </div>
+  </div>
+  <canvas id="ed"></canvas>
+</div>
+<div id="status"></div>
+<script src="js/core.js"></script>
+<script src="js/editor.js"></script>
+</body>
+</html>
