@@ -147,7 +147,7 @@ function drawWallTile(ctx,lv,x,y,sx,sy){
 }
 function drawCrackedTile(ctx,x,y,sx,sy){
   const e=IMG.tile_wallgate;if(!e)return;
-  const w=140,h=e.fh/e.fw*w;
+  const w=132,h=e.fh/e.fw*w;
   ctx.drawImage(e.img,sx-w/2,sy+TH-h+4,w,h);
   const t=performance.now()/400+x;
   ctx.fillStyle='rgba(255,255,190,'+(0.4+0.3*Math.sin(t))+')';
@@ -156,11 +156,12 @@ function drawCrackedTile(ctx,x,y,sx,sy){
 function drawGateTile(ctx,sx,sy,runes){
   const e=IMG.tile_wallgate;if(!e)return;
   const w=170,h=e.fh/e.fw*w;
-  ctx.drawImage(e.img,sx-w/2,sy+TH-h+4,w,h);
+  const top=sy+TH-h+4;
+  ctx.drawImage(e.img,sx-w/2,top,w,h);
   const n=runes?runes.length:3;
   for(let i=0;i<n;i++){
     const lit=runes?runes[i]:false;
-    const rx=sx+(i-(n-1)/2)*30,ry=sy-h+38+Math.sin(performance.now()/300+i)*3;
+    const rx=sx+(i-(n-1)/2)*30,ry=top+h*.18+Math.sin(performance.now()/300+i)*3;
     ctx.fillStyle=lit?'#ffd83d':'rgba(40,50,70,.8)';
     ctx.strokeStyle=lit?'#fff':'#222';ctx.lineWidth=2;
     ctx.beginPath();ctx.arc(rx,ry,8,0,6.28);ctx.fill();ctx.stroke();
@@ -168,7 +169,8 @@ function drawGateTile(ctx,sx,sy,runes){
   }
 }
 function drawBridgeTile(ctx,sx,sy){
+  // self-contained one-tile platform: align its deck diamond to the tile diamond
   const e=IMG.tile_bridge;if(!e)return;
-  const w=132,h=e.fh/e.fw*w;
-  ctx.drawImage(e.img,sx-w/2,sy-h*.28,w,h);
+  const w=138,h=e.fh/e.fw*w;
+  ctx.drawImage(e.img,sx-w/2,sy-h*.13,w,h);
 }

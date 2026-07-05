@@ -5,7 +5,7 @@
  "tiles": [
   "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
   "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
-  "WWGGGGGGGGGGGGGGGGWWWGGGGGGGGGGGGGGGGGGGGGWW",
+  "WWGGGGGGGGGGGGGGGGWWWGGGGGGGGGRGGGGGGGGGGGWW",
   "WWGGGGGGGGGGGGGGGGWWWGGGGGGGGGRGGGGGGGGGGGWW",
   "WWGGGGGGGGGGGGGGGGWWWGGGGGGGGGRGGGGGGGGGGGWW",
   "WWGGGGGGGGGGGGGGGGWWWGGGGGGGGGRGGGGGGGGGGGWW",
@@ -148,7 +148,7 @@
    "type": "goblin",
    "x": 27,
    "y": 25,
-   "px": 31,
+   "px": 30.5,
    "py": 25
   },
   {
@@ -308,13 +308,13 @@
   },
   {
    "type": "coin",
-   "x": 24,
-   "y": 34
+   "x": 23.5,
+   "y": 33.5
   },
   {
    "type": "coin",
-   "x": 33,
-   "y": 26
+   "x": 32.5,
+   "y": 26.5
   }
  ],
  "arenas": [

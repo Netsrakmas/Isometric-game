@@ -17,12 +17,12 @@
  "pl_walk_ne2.webp",
  "pl_walk_se.webp",
  "pl_walk_sw.webp",
- "tile_bridge.webp",
- "tile_dirt.webp",
- "tile_grass1.webp",
- "tile_grass2.webp",
- "tile_grass3.webp",
- "tile_wallgate.webp",
+ "tile_bridge.png",
+ "tile_dirt.png",
+ "tile_grass1.png",
+ "tile_grass2.png",
+ "tile_grass3.png",
+ "tile_wallgate.png",
  "tile_wallruin.webp",
- "tile_water.webp"
+ "tile_water.png"
 ]

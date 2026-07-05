@@ -48,8 +48,8 @@ fillRect(24,13,28,17,T.G);  mset(29,15,T.G); // keep path clear
 mset(26,18,T.P);
 // fountain plaza
 fillRect(33,12,35,14,T.F);
-// boss wall + gate + arena
-fillRect(30,3,30,10,T.R);
+// boss wall + gate + arena (west wall reaches the water at y=2 — no walk-around)
+fillRect(30,2,30,10,T.R);
 fillRect(30,10,41,10,T.R);
 mset(36,10,T.GATE);
 fillRect(31,2,41,9,T.G);
@@ -69,14 +69,14 @@ const enemies=[
   ...[[9,30],[7.5,28],[12,27.5],[22.5,30],[23,21],[31,27],[35,28],[15,24.5]].map(p=>blob(p[0],p[1])),
   {...goblin(5,17.5,5,20),unlessFlag:'heartCont'},
   {...goblin(7,20,7,17.5),unlessFlag:'heartCont'},
-  goblin(27,25,31,25),
+  goblin(27,25,30.5,25),   // patrol stops short of the cracked wall at (31,25)
   goblin(34.5,17,37.5,19),
   ...[[22,24],[22,28],[30,20],[13,25]].map(p=>turret(p[0],p[1])),
 ];
 
 const coinSpots=[[9,34],[9,31],[9,28],[11,26],[13,26],[15,26],[19,26],[21,26],
   [23,24],[23,28],[23,31],[26,21],[26,19],[30,23],[32,23],[29,15],[31,15],[33,15],
-  [7,25],[5,23],[35,13],[36,12],[16,22],[14,28],[24,34],[33,26]];
+  [7,25],[5,23],[35,13],[36,12],[16,22],[14,28],[23.5,33.5],[32.5,26.5]];
 const pickups=[
   {type:'heartcont',x:5.5,y:18.5,unlessFlag:'heartCont'},
   ...coinSpots.map(p=>({type:'coin',x:p[0],y:p[1]})),

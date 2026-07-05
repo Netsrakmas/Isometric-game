@@ -89,6 +89,8 @@ To ship a level: export it, save as `levels/<name>.json`, and open the game with
 ## Known gaps / QA flags
 
 - Touch controls (virtual stick + buttons) are implemented but untested on real devices.
-- Wall/bridge draw offsets are hand-tuned constants in `js/core.js` (`drawWallTile`
-  etc.) — layout polish is still open, as noted in the handoff.
+- `tile_bridge`, `tile_wallgate` and the floor tiles were re-extracted from
+  `art-src/tiles-sheet.png` — the first extraction had cropped fragments and stray
+  debris baked in. Tile draw offsets live in `js/core.js` (`drawBridgeTile` etc.)
+  if further tuning is wanted.
 - Editor has no resize-existing-level operation (create a New level at the right size).
