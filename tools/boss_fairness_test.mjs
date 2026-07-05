@@ -104,10 +104,12 @@ const punish = await page.evaluate(() => {
 ok(punish.noContact, 'no contact damage while boss is stunned (punish window)');
 ok(punish.dmg === 2, `attacks in the punish window deal double (dealt ${punish.dmg})`);
 
-// 4) full fight with a bot using only real player inputs (12 max HP so all 3 phases pass quickly)
+// 4) full fight with a bot using only real player inputs.
+//    Boss at 12 max HP so all 3 phases pass quickly; player with the heart
+//    container (4 hearts), as a prepared player would fight it.
 await page.evaluate(() => {
   GW.boss.hp = GW.boss.maxHp = 12; GW.boss.thorns = false; GW.boss.state = 'walk'; GW.boss.t = 1;
-  const p = GW.player; p.hp = p.maxHp; p.x = GW.boss.x + 3; p.y = GW.boss.y; p.inv = 0;
+  const p = GW.player; p.maxHp = 8; p.hp = 8; p.x = GW.boss.x + 3; p.y = GW.boss.y; p.inv = 0;
   window.__deaths0 = GW.deaths; window.__hold = null;
   // log every hit the player takes, with the boss state at that moment
   window.__hits = [];
@@ -137,6 +139,8 @@ while (Date.now() - t0 < 150000) {
       // sidestep perpendicular to the boss direction
       mx = -dy / dd; my = dx / dd;
       if (b.state === 'charging') { p.mx = mx; p.my = my; p.fx = mx; p.fy = my; p.tryRoll(g); }
+    } else if (b.state === 'stompTele') {
+      if (dd < 2.4) away();               // clear the stomp before the ring spawns
     } else if (b.state === 'slamTele' && b.target) {
       const tx = p.x - b.target.x, ty = p.y - b.target.y, td = Math.hypot(tx, ty);
       if (td > .3 && td < 2.6) { mx = tx / td; my = ty / td; }
@@ -155,7 +159,7 @@ while (Date.now() - t0 < 150000) {
       p.fx = ex / ed; p.fy = ey / ed; p.tryAttack(g);
       if (ed < .9) { mx = -ex / ed; my = -ey / ed; } }
     // never idle inside boss contact range outside the punish window
-    if (!(b.state === 'stunned' || b.exposed > 0) && dd < 1.7) away();
+    if (!(b.state === 'stunned' || b.exposed > 0) && dd < 1.9) away();
     // stay inside the thorn-safe arena
     const M = .6;
     if (p.x < ar[0] + M) mx = Math.max(mx, .7); if (p.x > ar[2] - M) mx = Math.min(mx, -.7);
