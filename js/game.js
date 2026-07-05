@@ -377,7 +377,7 @@ tryAttack(g){
 }
 tryRoll(g){
   if(this.rolling||this.rollCd>0)return;
-  this.rollT=.4;this.rollCd=1.2;this.inv=Math.max(this.inv,.42);
+  this.rollT=.4;this.rollCd=1.2;this.inv=Math.max(this.inv,.55);
   let mx=this.mx||this.fx,my=this.my||this.fy;
   const m=Math.hypot(mx,my)||1;
   this.rvx=mx/m*6.25;this.rvy=my/m*6.25;
@@ -385,6 +385,7 @@ tryRoll(g){
 }
 hurt(g,dmg,src){
   if(this.inv>0||this.rolling||g.state!=='play')return false;
+  if(g.boss&&g.boss.dead)return false;   // the fight is won — no deaths during the victory slow-mo
   this.hp-=dmg*2>=1?Math.round(dmg*2):1; // dmg in hearts → halves
   this.hp=Math.max(0,this.hp);
   this.inv=.9;this.hurtT=.35;g.shake=7;
@@ -428,7 +429,9 @@ update(d,g){
   this.animator.set(an);this.animator.update(d);
   // contact damage from enemies
   g.enemies.forEach(e=>{if(!e.dead&&e.contact&&dist(e,this)<(e.r+this.r))this.hurt(g,e.contact,e);});
-  if(g.boss&&!g.boss.dead&&dist(g.boss,this)<1.35)this.hurt(g,1,g.boss);
+  // no boss contact damage while it's stunned/exposed — that's the punish window
+  if(g.boss&&!g.boss.dead&&g.boss.state!=='stunned'&&g.boss.exposed<=0&&
+     dist(g.boss,this)<1.35)this.hurt(g,1,g.boss);
 }
 }
 
@@ -604,7 +607,8 @@ update(d,g){
     case 'stompTele':
       if(this.t<=0){this.state='rest';this.t=1.1;this.pose='stomp';
         AudioSys.sfx('slam');g.shake=8;
-        this.ring={x:this.x,y:this.y,r:0};g.fx.push({kind:'dust',x:this.x,y:this.y,t:.4,max:.4});}
+        this.ring={x:this.x,y:this.y,r:0};g.fx.push({kind:'dust',x:this.x,y:this.y,t:.4,max:.4});
+        if(!this.ringHint){this.ringHint=true;g.showMsg('Roll through the shockwave ring!',2.8);}}
       break;
     case 'barrage':
       if(this.thrown<5&&this.t<1.1-(this.thrown+1)*.18){
@@ -644,12 +648,13 @@ update(d,g){
       if(this.t<=0){this.state='walk';this.t=ph===1?1.6:1.1;}
       break;
   }
-  // ring expansion
+  // ring expansion — slower than run speed (3.5) and the roll (6.25), so both
+  // running and rolling in ANY direction escape it; only standing still is punished
   if(this.ring){
-    this.ring.r+=d*5;
+    this.ring.r+=d*3.3;
     const dd=dist(this.ring,p);
     if(Math.abs(dd-this.ring.r)<.35&&!p.rolling&&p.inv<=0)p.hurt(g,.5,this.ring);
-    if(this.ring.r>7)this.ring=null;
+    if(this.ring.r>6.5)this.ring=null;
   }
   if(this.pose==='idle'&&ph>=2)this.pose='p2idle';
   // pose animation timer (drives multi-frame boss strips when present)
